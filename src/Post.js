@@ -11,14 +11,14 @@ function Post({name, description, message, photoUrl}) {
             <Avatar />
             <div className="post__info">
                 <h2>
-                    Bhanu
+                    {name}
                 </h2>
-                <p>Description</p>
+                <p>{description}</p>
             </div>
             </div>
             <div className="post__body">
                 <p>
-                    MessageBody here
+                   {message}
                 </p>
             </div>
             <div className="post__buttons">

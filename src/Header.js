@@ -7,9 +7,22 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import { useDispatch } from 'react-redux';
+import { auth } from './firebase';
+import { logout } from './features/userSlice';
 
 
 function Header() {
+
+    const dispatch = useDispatch()
+
+    const logOutApp = () => {
+        console.log("@@@@","logout")
+        dispatch(logout())
+        auth.signOut()
+        console.log("@@@@","logout")
+    };
+    
     return (
         <div className='header'>
             <div className="header__left">
@@ -17,7 +30,7 @@ function Header() {
                     alt="" />
                 <div className="header__search">
                     <SearchIcon />
-                    <input type="text" />
+                    <input type="text" placeholder="Search" />
                 </div>
             </div>
             <div className="header__right">
@@ -28,7 +41,9 @@ function Header() {
                 <HeaderOption Icon={NotificationsIcon} title='Notifications' />
                 <HeaderOption
                     avatar="https://firebasestorage.googleapis.com/v0/b/linkedinclone-c1d00.appspot.com/o/JNV.png?alt=media&token=ada41d3d-4a07-42ad-8359-4cd54fa4eab1"
-                    title="me" />
+                    title="me"
+                    onclick={logOutApp}
+                />
 
             </div>
         </div>
