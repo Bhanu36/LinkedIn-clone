@@ -11,8 +11,19 @@ function Login() {
     const [name, setName] = useState('');
     const [profilePic, setProfilePic] = useState('');
     const dispatch = useDispatch()
+    
     const loginToApp = (e) => {
         e.preventDefault()
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userAuth) => {
+                console.log("userAuth-login", userAuth)
+                dispatch(login({
+                    email: userAuth.user.email,
+                    uid: userAuth.user.uid,
+                    displayName: userAuth.user.displayName,
+                    profileUrl: userAuth.user.photoURL
+                }))
+            }).catch((err) => alert(err.message))
     }
 
     const register = () => {

@@ -19,7 +19,7 @@ function App() {
           email: userAuth.email,
           uid: userAuth.uid,
           displayName: userAuth.displayName,
-          photoUrl: userAuth.photoURL
+          profileUrl: userAuth.photoURL,
         }))
       } else {
         //loggedOUt

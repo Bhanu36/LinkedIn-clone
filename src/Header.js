@@ -17,10 +17,9 @@ function Header() {
     const dispatch = useDispatch()
 
     const logOutApp = () => {
-        console.log("@@@@","logout")
+        console.log("logout-clicked")
         dispatch(logout())
         auth.signOut()
-        console.log("@@@@","logout")
     };
     
     return (
@@ -40,9 +39,9 @@ function Header() {
                 <HeaderOption Icon={ChatIcon} title='Messaging' />
                 <HeaderOption Icon={NotificationsIcon} title='Notifications' />
                 <HeaderOption
+                    onclick={logOutApp}
                     avatar="https://firebasestorage.googleapis.com/v0/b/linkedinclone-c1d00.appspot.com/o/JNV.png?alt=media&token=ada41d3d-4a07-42ad-8359-4cd54fa4eab1"
                     title="me"
-                    onclick={logOutApp}
                 />
 
             </div>
