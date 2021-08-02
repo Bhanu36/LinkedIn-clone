@@ -57,7 +57,7 @@ function Login() {
 
             <form action="">
                 <input type="text" value={name} onChange={e => setName(e.target.value)} name="" placeholder="fullName" />
-                <input type="text" value={profilePic} onChange={e => setProfilePic(e.target.value)} placeholder="proPicUrl" name="" />
+                <input type="text" value={profilePic} onChange={e => setProfilePic(e.target.value)} placeholder="proPicUrl (optional)" name="" />
                 <input type="text" name="" value={email} onChange={e => setEmail(e.target.value)} placeholder="email" />
                 <input type="password" value={password} onChange={e => setPassword(e.target.value)} name="" placeholder='password' />
                 <button type='submit' onClick={loginToApp}>Sign In</button>

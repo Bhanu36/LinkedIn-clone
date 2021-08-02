@@ -47,7 +47,12 @@ function Sidebar() {
                 {recentItem('software developer')}
                 {recentItem('design')}
                 {recentItem('problem solving')}
+                {recentItem('AmanVerma')}
+                {recentItem('ManishMalik')}
+                {recentItem('Bhanu')}
+                {recentItem('Jobs')}
                 {recentItem('deveoper')}
+                {recentItem('opportunities')}
 
             </div>
         </div>
