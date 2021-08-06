@@ -9,10 +9,12 @@ import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import Post from './Post';
 import { db } from './firebase';
 import firebase from 'firebase';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
 
 
 function Feed() {
-
+    const user = useSelector(selectUser)
     const [input, setInput] = useState("")
     const [posts, setPosts] = useState([])
 
@@ -33,10 +35,10 @@ function Feed() {
     const sendPost = e => {
         e.preventDefault();
         db.collection('posts').add({
-            name: 'Bhanu',
-            description: 'test description',
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: '',
+            photoUrl: user.photoUrl || user.email[0],
             timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
         setInput('');
@@ -48,7 +50,7 @@ function Feed() {
                 <div className="feed__input">
                     <CreateIcon />
                     <form action="">
-                        <input value={input} onChange={e => setInput(e.target.value)} placeholder='write your feed here' type="text" text="" />
+                        <input value={input} onChange={e => setInput(e.target.value)} placeholder='write your feed here' type="text" />
                         <button onClick={sendPost} type='submit'>
                             Send
                         </button>
