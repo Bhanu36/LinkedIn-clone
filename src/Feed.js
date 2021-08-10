@@ -15,7 +15,7 @@ import { selectUser } from './features/userSlice';
 
 function Feed() {
     const user = useSelector(selectUser)
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState('')
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
